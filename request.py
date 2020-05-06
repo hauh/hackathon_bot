@@ -6,13 +6,10 @@ import config
 ##############################
 
 
-def send_message(text):
+def send_message(chat_id, text):
 	response = requests.post(
 		f"https://api.telegram.org/bot{config.bot_token}/sendMessage",
-		data={
-			'chat_id': config.group_id,
-			'text': text
-		},
+		data={'chat_id': chat_id, 'text': text},
 		proxies=dict(https=config.proxy) if config.proxy else None
 	)
 	if not response.ok:
