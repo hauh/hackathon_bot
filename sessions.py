@@ -51,4 +51,6 @@ def save_session(cursor, name, session):
 @with_connection
 def load_session(cursor, name):
 	cursor.execute("SELECT session FROM sessions WHERE name = %s", (name,))
-	return cursor.fetchone()
+	if result := cursor.fetchone():
+		result = result['session']
+	return result
