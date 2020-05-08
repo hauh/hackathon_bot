@@ -18,6 +18,8 @@ if (proxy := os.getenv('MTPROTO_PROXY', {})):
 		'connection': connection.ConnectionTcpMTProxyRandomizedIntermediate,
 		'proxy': (address, int(port), secret)
 	}
+admin_group_id = int(os.getenv('ADMIN_GROUP_ID'))
+
 
 # bot
 bot_token = os.getenv('BOT_TOKEN')
